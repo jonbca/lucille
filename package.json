@@ -1,0 +1,46 @@
+{
+  "name": "lucille",
+  "version": "1.0.0",
+  "description": "A web UI for esplaining your elasticsearch results",
+  "scripts": {
+    "clean": "rm -f public/bundle.js public/bundle.min.js",
+    "start": "watchify -o public/bundle.js -v -d src/app.js",
+    "build": "browserify -e src/app.js -t [envify --NODE_ENV production] -p [minifyify --no-map] > public/bundle.min.js",
+    "test": "npm run-script -s lint && karma start --single-run",
+    "lint": "eslint src test"
+  },
+  "keywords": [
+    "elasticsearch"
+  ],
+  "author": "Jonathan Abourbih",
+  "license": "MIT",
+  "dependencies": {
+    "backbone": "^1.2.1",
+    "jquery": "^2.1.4",
+    "react": "^0.13.3",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "babel-eslint": "^3.1.20",
+    "babelify": "^6.1.2",
+    "browserify": "^10.2.4",
+    "envify": "^3.4.0",
+    "eslint": "^0.24.0",
+    "jasmine": "^2.3.1",
+    "jasmine-core": "^2.3.4",
+    "jshint": "^2.8.0",
+    "karma": "^0.12.37",
+    "karma-browserify": "^4.2.1",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-jasmine": "^0.3.6",
+    "minifyify": "^7.0.2",
+    "parallelshell": "^1.2.0",
+    "watchify": "^3.2.3"
+  },
+  "browserify": {
+    "transform": [
+      "babelify",
+      "envify"
+    ]
+  }
+}
