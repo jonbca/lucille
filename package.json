@@ -2,6 +2,7 @@
   "name": "lucille",
   "version": "1.0.0",
   "description": "A web UI for esplaining your elasticsearch results",
+  "repository": "jonbca/lucille",
   "scripts": {
     "clean": "rm -f public/bundle.js public/bundle.min.js",
     "start": "watchify -o public/bundle.js -v -d src/app.js",
